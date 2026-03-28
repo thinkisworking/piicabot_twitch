@@ -1,0 +1,33 @@
+# PiicaBot — requirements.txt
+# Install with: pip install -r requirements.txt
+
+# ── Twitch bot ────────────────────────────────────────────────
+twitchio==2.10.0
+
+# ── Discord bot ───────────────────────────────────────────────
+discord.py==2.4.0
+
+# ── Database ──────────────────────────────────────────────────
+aiosqlite==0.20.0
+
+# ── HTTP / API calls ──────────────────────────────────────────
+aiohttp==3.10.5
+
+# ── Environment / config ──────────────────────────────────────
+python-dotenv==1.0.1
+
+# ── Timezone / world clock ────────────────────────────────────
+pytz==2024.1
+timezonefinder==6.5.2
+
+# ── Language detection (!identifylang) ───────────────────────
+langdetect==1.0.9
+
+# ── Word solving (!wordsolve, !anagram) ──────────────────────
+# Uses local words.txt — no extra package needed
+
+# ── Scheduling (auto points, stream checks) ──────────────────
+apscheduler==3.10.4
+
+# ── Logging ───────────────────────────────────────────────────
+loguru==0.7.2

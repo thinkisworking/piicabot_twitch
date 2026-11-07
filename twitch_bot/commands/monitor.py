@@ -1,3 +1,4 @@
+# PiicaBot — twitch_bot/commands/monitor.py
 # English: Stream monitoring cog. Warns the broadcaster if streams are left running indefinitely.
 # Italiano: Cog di monitoraggio dello streaming. Avvisa lo streamer se gli stream rimangono aperti indefinitamente.
 
@@ -28,11 +29,11 @@ class MonitorCog(commands.Cog):
         """
         self._monitor_streams.stop()
 
-    @routines.routine(minutes=30)
+    @routines.routine(seconds=60)
     async def _monitor_streams(self) -> None:
         """
-        English: Checks Twitch, YouTube, and TikTok stream status every 30 minutes.
-        Italiano: Controlla lo stato dello stream su Twitch, YouTube e TikTok ogni 30 minuti.
+        English: Checks Twitch, YouTube, and TikTok stream status every 60 seconds.
+        Italiano: Controlla lo stato dello stream su Twitch, YouTube e TikTok ogni 60 secondi.
         """
         await self._check_twitch()
         if YOUTUBE_API_KEY and YOUTUBE_CHANNEL_ID:
@@ -70,8 +71,8 @@ class MonitorCog(commands.Cog):
                     if resp.status == 200:
                         data = await resp.json()
                         if data.get("items"):
-                            # English: Simplified check. For exact uptime, another API call to 'videos' endpoint is needed.
-                            # Italiano: Controllo semplificato. Per l'uptime esatto, è necessaria un'altra chiamata API all'endpoint 'videos'.
+                            # English: Simplified check for live status.
+                            # Italiano: Controllo semplificato per lo stato live.
                             logger.warning("YouTube stream is currently live.")
         except Exception as e:
             logger.error(f"YouTube monitor error: {e}")

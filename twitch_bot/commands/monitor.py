@@ -90,7 +90,7 @@ class MonitorCog(commands.Cog):
         Italiano: Invia un avviso ad alta priorità alla chat e lo registra.
         """
         channel = self.bot.get_channel(TWITCH_CHANNEL)
-        alert_msg = f"@{TWITCH_CHANNEL} ⚠️ ALERT: Your {platform} stream has been running for over {hours:.1f} hours! Did you forget to turn it off? ( 0 x 0 )"
+        alert_msg = f"@{TWITCH_CHANNEL} (⊙ _ ⊙ ) : Your {platform} stream has been running for over {hours:.1f} hours! Did you forget to turn it off? ( 0 x 0 )"
         
         logger.critical(alert_msg)
         if channel:
